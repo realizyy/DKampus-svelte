@@ -6,7 +6,6 @@
     import SearchBoxHeader from "./searchBoxHeader.svelte";
 
     let loggedIn = false;
-    let anouncementMsg = "🎉🎉🎉 Selamat datang di DKampus! 🎉🎉🎉 ";
 
     async function signOut() {
         await supabase.auth.signOut();
@@ -126,11 +125,3 @@
         {/if}
     </div>
 </div>
-<!--Anouncement running text-->
-{#if location.pathname === '/'}
-<div class="text-center p-2">
-    <marquee behavior="scroll" direction="left" scrollamount="6">
-        {anouncementMsg}
-    </marquee>
-</div>
-{/if}

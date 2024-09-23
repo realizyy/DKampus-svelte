@@ -5,6 +5,10 @@
     import Carousel from "../components/carousel.svelte";
     import CategoryFood from "../components/categoryFood.svelte";
     import PromoMenuCard from "../components/promoMenuCard.svelte";
+
+    let anouncementMsg = "🎉🎉🎉 Selamat datang di DKampus! 🎉🎉🎉 ";
+
+
     const dataButtons = [
         {
             name: "Westren",
@@ -54,7 +58,13 @@
 </script>
 
 <Header />
-<div class="pb-20">
+<div class="">
+    <!--Anouncement running text-->
+    <div class="text-center p-2">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            {anouncementMsg}
+        </marquee>
+    </div>
     <div class="flex justify-center items-center mb-5 mx-auto">
         <Carousel />
     </div>
