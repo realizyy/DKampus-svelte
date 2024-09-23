@@ -1,17 +1,18 @@
 <script>
+    import { slide } from 'svelte/transition';
     import { isLoggedIn, user } from "../lib/store";
     import { supabase } from '../lib/supabase';
     import { onMount } from "svelte";
     import SearchBoxHeader from "./searchBoxHeader.svelte";
 
     let loggedIn = false;
+    let anouncementMsg = "🎉🎉🎉 Selamat datang di DKampus! 🎉🎉🎉 ";
 
     async function signOut() {
         await supabase.auth.signOut();
         isLoggedIn.set(false);
         window.location.href = '/';
     }
-
 
     onMount(async () => {
         isLoggedIn.subscribe(value => {
@@ -22,7 +23,7 @@
     });
 </script>
 
-<div class="navbar bg-neutral-400 top-0 w-full z-50 shadow-lg">
+<div class="navbar bg-neutral-400 top-0 w-full z-50 shadow-lg rounded-box">
     <div class="navbar-start">
         <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -42,6 +43,8 @@
             <ul
                     tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                <li><a href="/">Home</a></li>
+                <li><a href="/jastip">Jastip🔥</a></li>
                 <li><a>Promo</a></li>
                 <li><a>Keranjang</a></li>
                 <li><a>Favorit</a></li>
@@ -51,7 +54,7 @@
     <div class="navbar-center">
         <a class="btn btn-ghost text-xl" href="/">
             <img src="/logoDkampus.svg" alt="DKampus" class="w-10 h-10">
-            Dkampus
+            DKampus
         </a>
     </div>
     <div class="navbar-end">
@@ -123,3 +126,11 @@
         {/if}
     </div>
 </div>
+<!--Anouncement running text-->
+{#if location.pathname === '/'}
+<div class="text-center p-2">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+        {anouncementMsg}
+    </marquee>
+</div>
+{/if}

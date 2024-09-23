@@ -3,6 +3,7 @@
     import {supabase} from "../lib/supabase";
     import {onMount} from "svelte";
     import {isLoggedIn} from "../lib/store";
+    import ScrollToTop from "../components/scrollToTop.svelte";
 
     onMount(async () => {
         const { data: { session } } = await supabase.auth.getSession();
@@ -21,6 +22,7 @@
     </style>
 </svelte:head>
 
-<div>
+<div class="max-w-xl md:max-w-3xl mx-auto">
     <slot />
+    <ScrollToTop />
 </div>

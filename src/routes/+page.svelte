@@ -38,23 +38,30 @@
             name: "Roti & Kue",
             img: "/pretzel.png",
         },
+        {
+            name: "Minuman",
+            img: "/cola.svg",
+        },
+        {
+            name: "Mie",
+            img: "/ramen.svg",
+        },
+        {
+            name: "Sate",
+            img: "/sate.svg",
+        }
     ]
 </script>
 
 <Header />
 <div class="pb-20">
-    <div class="flex justify-center items-center mt-24 mb-5 w-1/2 mx-auto">
+    <div class="flex justify-center items-center mb-5 mx-auto">
         <Carousel />
     </div>
     <!--Content Home-->
         <!--Category Card-->
     <div class="flex flex-wrap gap-3 mt-5 items-center justify-center">
-        {#each dataButtons.slice(0, 4) as btn}
-            <CategoryFood {...btn} />
-        {/each}
-    </div>
-    <div class="flex flex-wrap gap-3 mt-5 items-center justify-center">
-        {#each dataButtons.slice(4) as btn}
+        {#each dataButtons as btn}
             <CategoryFood {...btn} />
         {/each}
     </div>
