@@ -58,7 +58,7 @@
 </script>
 
 <Header />
-<div class="">
+<div class="mb-10">
     <!--Anouncement running text-->
     <div class="text-center p-2">
         <marquee behavior="scroll" direction="left" scrollamount="6">
