@@ -24,7 +24,7 @@
         on:emblaInit="{onInit}">
     <div class="embla__container">
         {#each color as {name, color}}
-            <div class="embla__slide w-screen h-64" style="background-color: {color}">
+            <div class="embla__slide w-screen h-64 rounded-box" style="background-color: {color}">
                 <h1 class="text-black font-bold text-2xl">{name.toUpperCase()}</h1>
             </div>
         {/each}
