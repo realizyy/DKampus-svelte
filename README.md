@@ -1,18 +1,11 @@
-# create-svelte
+<p align="center"><a href="#" target="_blank">
+    <img src="LogoDkampus.svg" width="400" alt="Dkampus Logo"></a>
+</p>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## About Dkampus
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Lorem ipsum dolor sit amet.<br>
+😎🔥🤷‍♂️🙌👍🤦‍♂️😁😁
 
 ## Developing
 
