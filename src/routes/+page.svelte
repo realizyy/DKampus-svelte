@@ -1,4 +1,6 @@
 <script>
+    import {redirect} from "@sveltejs/kit";
+
     const Title = "Home";
     import Header from "../components/header.svelte";
     import Footer from "../components/footer.svelte";
@@ -147,7 +149,7 @@
 </script>
 
 <Header />
-<div class="mb-10 h-auto">
+<div class="h-auto bg-[#f2f2f2] rounded-box">
     <!--Anouncement running text-->
     <div class="text-center p-2">
         <marquee behavior="scroll" direction="left" scrollamount="6">
@@ -162,10 +164,10 @@
     <!--Infomation jastip-->
     <div class="bg-[#F9832A] p-5 rounded-lg mb-5">
         <div class="flex flex-row">
-            <img src="/personheader1.svg" alt="person" />
+            <img src="/person1.svg" alt="person" />
             <div class="text-white ml-2">
                 <p class="text-2xl font-bold">DJastip</p>
-                <p class="text-sm">Dkampus Jasa Titip (Jastip)<br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatem, nam error corporis, id harum eius amet iste nesciunt molestiae totam, modi est pariatur quibusdam ut? Molestiae, molestias. Placeat, nulla!</p>
+                <p class="text-md">Dkampus Jasa Titip (Jastip)<br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatem, nam error corporis, id harum eius amet iste nesciunt molestiae totam, modi est pariatur quibusdam ut? Molestiae, molestias. Placeat, nulla!</p>
             </div>
         </div>
     </div>
@@ -173,22 +175,23 @@
     <!--Pesan jastip-->
     <div class="bg-[#F9832A] p-5 rounded-lg mb-5">
         <div class="flex flex-row">
-            <div class="text-white">
-                <p class="text-2xl font-bold">Pesan Jastip sekarang juga!</p>
+            <div class="text-white ml-2">
+                <p class="text-2xl font-bold mb-1">Pesan Jastip Sekarang!</p>
+                <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatem, nam error corporis, id harum eius amet iste nesciunt molestiae totam, modi est pariatur quibusdam ut? Molestiae, molestias. Placeat, nulla!</p>
             </div>
-            <button class="bg-white text-[#F9832A] font-bold py-2 px-4 rounded-md ml-auto">Pesan Jastip</button>
+            <img src="/person2.png" alt="person" class="-scale-x-[1] w-[80%] h-[80%] flex items-center justify-center mx-auto" />
         </div>
     </div>
 
     <!-- FAQ -->
-    <div class="bg-[#F9832A] p-5 rounded-lg mb-5 gap-y-2">
+    <div class="bg-[#F9832A] p-5 rounded-lg mb-5 gap-y-2 text-white">
         <div class="flex flex-row">
-            <div class="text-white mb-2">
+            <div class="mb-2">
                 <p class="text-2xl font-bold">Frequntly Asked Question</p>
             </div>
         </div>
         {#each faq as { question, answer }}
-            <div tabindex="0" class="collapse bg-neutral-200/45 mb-2">
+            <div tabindex="0" class="collapse collapse-plus bg-neutral-200/45 mb-2">
                 <div class="collapse-title text-lg font-semibold">
                     {question}
                 </div>
