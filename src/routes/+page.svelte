@@ -1,6 +1,4 @@
 <script>
-    import {redirect} from "@sveltejs/kit";
-
     const Title = "Home";
     import Header from "../components/header.svelte";
     import Footer from "../components/footer.svelte";

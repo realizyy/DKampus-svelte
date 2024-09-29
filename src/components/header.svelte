@@ -1,26 +1,17 @@
 <script>
-    import { slide } from 'svelte/transition';
-    import { isLoggedIn, user } from "../lib/store";
     import { supabase } from '../lib/supabase';
     import { onMount } from "svelte";
-    import SearchBoxHeader from "./searchBoxHeader.svelte";
 
-    let loggedIn = false;
-
-    async function signOut() {
-        await supabase.auth.signOut();
-        isLoggedIn.set(false);
-        window.location.href = '/';
-    }
+    const user = false;
 
     onMount(async () => {
-        isLoggedIn.subscribe(value => {
-            loggedIn = value;
-        });
-        const { data: { user: supabaseUser } } = await supabase.auth.getUser();
-        user.set(supabaseUser);
+        const session = supabase.auth.getSession();
+        if (session) {
+            console.log(session);
+        }
     });
 </script>
+
 
 <div class="navbar bg-neutral-400 top-0 w-full z-50 shadow-lg rounded-box">
     <div class="navbar-start">
@@ -56,7 +47,7 @@
         </a>
     </div>
     <div class="navbar-end">
-        {#if loggedIn}
+        {#if user}
 <!--            &lt;!&ndash;Search button&ndash;&gt;-->
 <!--            <button class="btn btn-ghost btn-circle">-->
 <!--                <svg-->
@@ -130,16 +121,16 @@
                     <!--Profile info-->
                     <div class="flex flex-col items-center">
                         <img src="/person.svg" alt="User" width="40%">
-                        {#if $user}
+                        {#if user}
                             <h1 id="username" class="text-lg">username</h1>
-                            <p id="email" class="text-sm">{$user.email}</p>
+                            <p id="email" class="text-sm">usermail</p>
                             <p id="phone" class="text-sm">address</p>
                         {/if}
                     </div>
                     <div class="bg-black h-px my-2"></div> <!-- Divider line -->
                     <li><a>Edit Profile</a></li>
                     <li>
-                        <a class="bg-red-400" on:click={signOut}>
+                        <a class="bg-red-400">
                             <img src="/logOut.svg" alt="Logout">
                             Logout
                         </a>

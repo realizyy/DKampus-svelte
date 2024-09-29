@@ -1,18 +1,7 @@
 <script>
     import "../app.css";
-    import {supabase} from "../lib/supabase";
-    import {onMount} from "svelte";
-    import {isLoggedIn} from "../lib/store";
     import ScrollToTop from "../components/scrollToTop.svelte";
 
-    onMount(async () => {
-        const { data: { session } } = await supabase.auth.getSession();
-        if (session) {
-            isLoggedIn.set(true);
-        } else {
-            isLoggedIn.set(false);
-        }
-    });
 </script>
 <svelte:head>
     <title>Dkampus jastip</title>
